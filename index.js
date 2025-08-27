@@ -6,7 +6,7 @@ import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express()
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 let blogs = [];
 app.use(express.static("public")); 
 
@@ -93,6 +93,6 @@ app.get("/delete/:id", (req, res) => {
     
 
 
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`)
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
