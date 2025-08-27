@@ -1,1 +1,37 @@
+<!-- this page will be visible at start and after posting the blog 
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+<h1> My Dashboard</h1>
 
+<a href="/create">Create a blog</a>
+<!-- considering multiple blogs we need an array  -->
+<!-- i will have to access each and every element of the array with the particular attributes which would display the title and the subtitle view  -->
+ <!-- but I am not able to view this at the moment and I have to make sure to make it viewable -->
+
+<div class="container">
+  <% if (locals.blogs && locals.blogs.length > 0) { %>
+  <% locals.blogs.forEach((blog) => { %>
+    <h1><%= blog.title %></h1>
+    <h3><%= blog.subtitle %></h3>
+    <a href="/edit/<%= blog.index %>">Edit</a>
+    <a href="/view/<%= blog.index %>">View</a>
+    <a href="/delete/<%= blog.index %>">Delete</a>
+    <hr>
+  <% }) %>
+<% } else { %>
+  <p>No blogs available. Please create a new blog.</p>
+<% } %>
+
+</div>
+
+<br><br>
+</body>
+</html>
